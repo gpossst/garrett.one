@@ -9,7 +9,10 @@ type PhotographyWidgetTypes = {
 
 function PhotographyWidget({ image, title, date }: PhotographyWidgetTypes) {
   return (
-    <div className="bg-[#2b2b2b] p-2 w-1/2 rounded-3xl">
+    <div
+      className=" p-2 w-1/2 rounded-3xl"
+      style={{ backgroundColor: "rgba(0, 0, 0, 0.66)" }}
+    >
       <div className="bg-[#2b2b2b] w-full rounded-3xl p-2 border-[#83c5be] border-[1px]">
         <div className=" flex  mx-auto mb-2 items-center justify-between px-2">
           <div className="font-ab_font text-lg">{title}</div>
