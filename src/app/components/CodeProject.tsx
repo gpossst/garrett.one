@@ -38,14 +38,12 @@ function CodeProject({
         if (e.key === "Enter") handleClick();
       }}
     >
-      {/* Background image with fade effect */}
-      <div
-        className={`absolute inset-0 m-4 transition-all duration-500 ease-in-out ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      {/* Background image with opacity effect */}
+      <div className="absolute inset-0 m-4">
         <div
-          className="w-full h-full bg-cover bg-center transition-all duration-300"
+          className={`w-full h-full bg-cover bg-center transition-all duration-300 ${
+            isHovered ? "opacity-100" : "opacity-50"
+          }`}
           style={{
             backgroundImage: `url(${background})`,
             borderRadius: isHovered ? "0.75rem" : "0",
@@ -56,7 +54,7 @@ function CodeProject({
       {/* Title when other item is hovered */}
       <div
         className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out ${
-          isOtherHovered ? "opacity-50" : "opacity-0"
+          isOtherHovered ? "opacity-100" : "opacity-0"
         }`}
       >
         <h2 className="p-4 rotate-90 h-full">{title}</h2>
@@ -68,7 +66,7 @@ function CodeProject({
           !isHovered && !isOtherHovered
             ? "opacity-100"
             : isOtherHovered
-            ? "opacity-50"
+            ? "opacity-100"
             : "opacity-0"
         }`}
       >
