@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaBluesky } from "react-icons/fa6";
 
 function LinksPage() {
   return (
@@ -40,6 +41,14 @@ function LinksPage() {
           rel="noopener noreferrer"
         >
           <FaXTwitter size={40} />
+        </a>
+        <a
+          href={"https://bsky.app/profile/garrett.one"}
+          className="block bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-lg text-center text-lg font-medium transition-all duration-300 hover:transform hover:scale-105"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaBluesky size={40} />
         </a>
       </div>
     </div>
