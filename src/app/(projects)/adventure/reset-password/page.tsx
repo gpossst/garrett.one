@@ -1,7 +1,6 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 
 export default function ResetPassword() {
@@ -9,7 +8,6 @@ export default function ResetPassword() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const router = useRouter();
   const supabase = createClientComponentClient();
 
   const logIn = useCallback(async () => {
@@ -45,10 +43,8 @@ export default function ResetPassword() {
       }
 
       setSuccess(true);
-      // Redirect to login after 3 seconds
-      setTimeout(() => {
-        router.push("/login");
-      }, 3000);
+      // Sign out the user
+      await supabase.auth.signOut();
     } catch (err) {
       console.error(err);
       setError("An unexpected error occurred");
@@ -68,7 +64,7 @@ export default function ResetPassword() {
 
       {success ? (
         <div className="text-green-600 text-center mb-4">
-          Password successfully reset! Redirecting to login...
+          Password successfully reset! You can now close this page.
         </div>
       ) : (
         <form onSubmit={handlePasswordReset}>
