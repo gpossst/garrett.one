@@ -81,7 +81,7 @@ export default function ResetPassword() {
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full p-2 border rounded focus:outline-none text-emerald-500 focus:ring-2 focus:ring-emerald-500"
               placeholder="Enter your new password"
               minLength={6}
               required
@@ -100,7 +100,7 @@ export default function ResetPassword() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full p-2 border rounded text-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               placeholder="Confirm your new password"
               minLength={6}
               required
