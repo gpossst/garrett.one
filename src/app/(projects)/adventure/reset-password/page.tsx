@@ -2,7 +2,7 @@
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
@@ -11,6 +11,20 @@ export default function ResetPassword() {
   const [success, setSuccess] = useState(false);
   const router = useRouter();
   const supabase = createClientComponentClient();
+
+  const logIn = useCallback(async () => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token_hash");
+    if (token) {
+      const { error } = await supabase.auth.verifyOtp({
+        token_hash: token,
+        type: "email",
+      });
+      if (error) {
+        console.error(error);
+      }
+    }
+  }, [supabase]);
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +54,11 @@ export default function ResetPassword() {
       setError("An unexpected error occurred");
     }
   };
+
+  useEffect(() => {
+    logIn();
+    console.log("logged in");
+  }, [logIn]);
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
