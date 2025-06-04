@@ -20,7 +20,7 @@ function CodeWidget() {
     },
     {
       title: "Reformify",
-      background: "https://imgur.com/a/YigxNhs",
+      background: "https://i.imgur.com/YigxNhs.png",
       link: "https://reformify.com/",
     },
   ];
